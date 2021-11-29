@@ -1,0 +1,67 @@
+﻿@page "/timers"
+
+@using mitoSoft.DailyTimers.Core.Contracts
+@using mitoSoft.DailyTimers.Core.Extensions
+@using mitoSoft.DailyTimers.Razor.Components
+@using mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer.Models
+
+<h1>TimeSwitches</h1>
+
+<p>
+    <button class="btn btn-primary" @onclick="@ShowAddTimerModal">Add</button>
+</p>
+
+
+@foreach (var timer in this.Timers.SortByName())
+{
+    <p>
+        <DailyTimerView OnTimerRemoved="@OnTimerRemoved" OnTimerUpdated="@OnTimerUpdated" Timer="@timer"></DailyTimerView>
+    </p>
+}
+
+<AddDailyTimerModal @ref="_add" OnChannelAdded="@OnTimerAdded"></AddDailyTimerModal>
+
+@code {
+    private AddDailyTimerModal _add;
+
+    private IList<IDailyTimer> Timers { get; set; }
+
+    protected override void OnInitialized()
+    {
+        this.Timers = new List<IDailyTimer>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            var timer = new DailyTimer();
+            timer.Initialize();
+            timer.Name = $"Test{i}";
+            Timers.Add(timer);
+        }
+    }
+
+    private void ShowAddTimerModal()
+    {
+        _add.Show(this.Timers);
+    }
+
+    private void OnTimerUpdated(MouseEventArgs e, IDailyTimer timer)
+    {
+        //do something when a timer gets updated
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void OnTimerRemoved(MouseEventArgs e, IDailyTimer timer)
+    {
+        this.Timers.Remove(timer);
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void OnTimerAdded(MouseEventArgs e, string name)
+    {
+        var timer = new DailyTimer();
+        timer.Initialize();
+        timer.Name = name;
+        Timers.Add(timer);
+        InvokeAsync(StateHasChanged);
+    }
+}
