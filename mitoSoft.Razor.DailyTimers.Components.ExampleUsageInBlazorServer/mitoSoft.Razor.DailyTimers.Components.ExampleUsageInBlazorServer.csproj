@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mitoSoft.Razor.DailyTimers.Razor.Components\mitoSoft.DailyTimers.Razor.Components.csproj" />
+    <ProjectReference Include="..\mitoSoft.Razor.DailyTimers.Razor.Components\mitoSoft.Razor.DailyTimers.Components.csproj" />
   </ItemGroup>
 
 </Project>

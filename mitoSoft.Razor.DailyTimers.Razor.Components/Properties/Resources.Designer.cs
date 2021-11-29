@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace mitoSoft.DailyTimers.Razor.Components.Properties {
+namespace mitoSoft.Razor.DailyTimers.Components.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace mitoSoft.DailyTimers.Razor.Components.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("mitoSoft.DailyTimers.Razor.Components.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("mitoSoft.Razor.DailyTimers.Components.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
