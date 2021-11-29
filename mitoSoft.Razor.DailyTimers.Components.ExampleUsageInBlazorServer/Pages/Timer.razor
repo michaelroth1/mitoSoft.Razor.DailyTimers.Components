@@ -2,12 +2,15 @@
 
 @using mitoSoft.DailyTimers.Core.Contracts
 @using mitoSoft.DailyTimers.Core.Extensions
+@using mitoSoft.Razor.Components
 @using mitoSoft.Razor.DailyTimers.Components
+
+@inject IJSRuntime JsRuntime
 
 <h1>TimeSwitches</h1>
 
 <p>
-    <button class="btn btn-primary" @onclick="@ShowAddTimerModal">Add</button>
+    <button class="btn btn-primary" @onclick="@ShowInputBox">Add</button>
 </p>
 
 
@@ -18,10 +21,10 @@
     </p>
 }
 
-@*<AddDailyTimerModal @ref="_add" OnChannelAdded="@OnTimerAdded"></AddDailyTimerModal>*@
+<InputBox @ref="_input" OnOkClicked="@OnTimerAdded"></InputBox>
 
 @code {
-    //private AddDailyTimerModal _add;
+    private InputBox _input;
 
     private IList<IDailyTimer> Timers { get; set; }
 
@@ -38,9 +41,9 @@
         }
     }
 
-    private void ShowAddTimerModal()
+    private void ShowInputBox()
     {
-        //_add.Show(this.Timers);
+        _input.Show("Add DailyTimer", "");
     }
 
     private void OnTimerUpdated(MouseEventArgs e, IDailyTimer timer)
@@ -55,12 +58,23 @@
         InvokeAsync(StateHasChanged);
     }
 
-    private void OnTimerAdded(MouseEventArgs e, string name)
+    private async void OnTimerAdded(MouseEventArgs e, string name)
     {
-        var timer = new DailyTimer();
-        timer.Initialize();
-        timer.Name = name;
-        Timers.Add(timer);
-        InvokeAsync(StateHasChanged);
+        if (string.IsNullOrEmpty(name))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", $"Choose a name.");
+        }
+        else if (this.Timers.Any(c => c.Name == name))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", $"The name '{name}' is already choosen.");
+        }
+        else
+        {
+            var timer = new DailyTimer();
+            timer.Initialize();
+            timer.Name = name;
+            Timers.Add(timer);
+            await InvokeAsync(StateHasChanged);
+        }
     }
 }
