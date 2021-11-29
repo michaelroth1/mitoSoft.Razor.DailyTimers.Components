@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer
+namespace mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer
 {
     public class Program
     {

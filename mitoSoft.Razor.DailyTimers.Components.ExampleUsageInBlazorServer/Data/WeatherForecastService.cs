@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer.Data
+namespace mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer.Data
 {
     public class WeatherForecastService
     {

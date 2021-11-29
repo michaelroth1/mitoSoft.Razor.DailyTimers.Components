@@ -2,8 +2,8 @@
 
 @using mitoSoft.DailyTimers.Core.Contracts
 @using mitoSoft.DailyTimers.Core.Extensions
-@using mitoSoft.DailyTimers.Razor.Components
-@using mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer.Models
+@using mitoSoft.Razor.DailyTimers.Components
+@using mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer.Models
 
 <h1>TimeSwitches</h1>
 
@@ -19,10 +19,10 @@
     </p>
 }
 
-<AddDailyTimerModal @ref="_add" OnChannelAdded="@OnTimerAdded"></AddDailyTimerModal>
+@*<AddDailyTimerModal @ref="_add" OnChannelAdded="@OnTimerAdded"></AddDailyTimerModal>*@
 
 @code {
-    private AddDailyTimerModal _add;
+    //private AddDailyTimerModal _add;
 
     private IList<IDailyTimer> Timers { get; set; }
 
@@ -41,7 +41,7 @@
 
     private void ShowAddTimerModal()
     {
-        _add.Show(this.Timers);
+        //_add.Show(this.Timers);
     }
 
     private void OnTimerUpdated(MouseEventArgs e, IDailyTimer timer)

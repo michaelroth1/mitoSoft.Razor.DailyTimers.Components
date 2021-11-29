@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer.Data;
+using mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer
+namespace mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer
 {
     public class Startup
     {

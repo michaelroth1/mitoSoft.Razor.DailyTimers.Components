@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer": {
+    "mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

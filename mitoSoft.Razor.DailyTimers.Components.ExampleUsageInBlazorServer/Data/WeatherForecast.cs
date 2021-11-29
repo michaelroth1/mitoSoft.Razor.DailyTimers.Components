@@ -1,6 +1,6 @@
 using System;
 
-namespace mitoSoft.DailyTimers.Razor.Components.ExampleUsageInBlazorServer.Data
+namespace mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer.Data
 {
     public class WeatherForecast
     {

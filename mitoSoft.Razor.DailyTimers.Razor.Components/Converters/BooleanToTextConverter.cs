@@ -1,4 +1,4 @@
-﻿namespace mitoSoft.DailyTimers.Razor.Components.Converters
+﻿namespace mitoSoft.Razor.DailyTimers.Components.Converters
 {
     internal static class BooleanToTextConverter
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace mitoSoft.DailyTimers.Razor.Components.Helpers
+namespace mitoSoft.Razor.DailyTimers.Components.Helpers
 {
     internal static class DayNameHelper
     {
