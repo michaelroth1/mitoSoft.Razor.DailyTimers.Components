@@ -132,6 +132,9 @@
   <data name="NoHolidays" xml:space="preserve">
     <value>No holidays</value>
   </data>
+  <data name="TriggerTime" xml:space="preserve">
+    <value>Triggertime</value>
+  </data>
   <data name="_active" xml:space="preserve">
     <value>active</value>
   </data>
