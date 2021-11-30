@@ -4,9 +4,9 @@ This library provides a bunch of rozor controsl to handle the daily-timers of **
 
 ## Dependencies
 
- - Microsoft.AspNetCore.Components.Web (5.0.12)
- - mitoSoft.DailyTimers.Core (1.1.1)
- - mitoSoft.Razor.Components (1.1.0)
+ - Microsoft.AspNetCore.Components.Web
+ - mitoSoft.DailyTimers.Core
+ - mitoSoft.Razor.Components
 
 ## DailyTimeView 
 This control provides short overview to depict teh information of a **IDailyTimer** interface in a quick and easy manner. 
