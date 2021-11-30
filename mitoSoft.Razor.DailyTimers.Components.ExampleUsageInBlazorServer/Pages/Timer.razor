@@ -7,7 +7,7 @@
 
 @inject IJSRuntime JsRuntime
 
-<h1>TimeSwitches</h1>
+<h1>Timers</h1>
 
 <p>
     <button class="btn btn-primary" @onclick="@OnTimerAdded">Add</button>
@@ -57,7 +57,7 @@
 
     private async void OnTimerAdded(MouseEventArgs e)
     {
-        var result = await _inputBox.ShowDialog("", "Add DailyTimer", "");
+        var result = await _inputBox.ShowDialog("Timers", "Add DailyTimer", "");
 
         if (result != Razor.Components.Enums.DialogResult.OK)
         {

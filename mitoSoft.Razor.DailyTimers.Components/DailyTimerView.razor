@@ -9,7 +9,7 @@
     <button class="btn btn-secondary overlay" type="button" @onclick="@(e => RemoveClicked(e))">&times;</button>
 </div>
 
-<EditDailyTimerModal @ref="_editTimer" OnTimerUpdated="@UpdatedRaised"></EditDailyTimerModal>
+<EditDailyTimerModal @ref="_editTimer"></EditDailyTimerModal>
 
 @code {
 
@@ -27,20 +27,22 @@
     [Parameter]
     public IDailyTimer Timer { get; set; }
 
-    public void SelectClicked(MouseEventArgs e)
+    public async void SelectClicked(MouseEventArgs e)
     {
-        _editTimer.Show(this.Timer);
         OnTimerSelected?.Invoke(e, this.Timer);
+
+        var result = await _editTimer.ShowDialog(this.Timer);
+
+        if (result == Razor.Components.Enums.DialogResult.OK)
+        {
+            OnTimerUpdated?.Invoke(e, _editTimer.Timer);
+            await InvokeAsync(StateHasChanged);
+        }
     }
 
     public void RemoveClicked(MouseEventArgs e)
     {
         OnTimerRemoved?.Invoke(e, this.Timer);
-    }
-
-    public void UpdatedRaised(MouseEventArgs e, IDailyTimer channel)
-    {
-        OnTimerUpdated?.Invoke(e, channel);
     }
 
     private string GetChannelText()

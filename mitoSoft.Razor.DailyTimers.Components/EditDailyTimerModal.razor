@@ -1,7 +1,12 @@
-﻿@using mitoSoft.Razor.DailyTimers.Components.Helpers
-@*http://blog.ppedv.de/post/Boostrap-Modal-Dialog-fur-Blazor*@
+﻿@*http://blog.ppedv.de/post/Boostrap-Modal-Dialog-fur-Blazor*@
 
-@if (_show)
+@using mitoSoft.Razor.DailyTimers.Components.Helpers
+@using mitoSoft.Razor.Components
+@using mitoSoft.Razor.Components.Enums
+
+@inherits mitoSoft.Razor.Components.SynchronousDialog
+
+@if (this.Visibility)
 {
     <div class="modal fade show" id="myModal" style="display: block;">
         <div class="modal-dialog modal-dialog-scrollable">
@@ -122,7 +127,6 @@
 }
 
 @code {
-    private bool _show;
     public IDailyTimer _clone;
     public string _minutes;
     public string _hours;
@@ -130,36 +134,48 @@
     [Parameter]
     public Action<MouseEventArgs, IDailyTimer> OnTimerUpdated { get; set; }
 
-    public IDailyTimer Timer { get; set; }
+    private IDailyTimer _timer;
+    public IDailyTimer Timer
+    {
+        get
+        {
+            return this._timer;
+        }
+        set
+        {
+            this._timer = value;
+            this._clone = (IDailyTimer)this.Timer.Clone();
+            this._minutes = this._clone.GetDisplayMinute();
+            this._hours = this._clone.GetDisplayHour();
+        }
+    }
 
     public void Show(IDailyTimer timer)
     {
         this.Timer = timer;
-        this._clone = (IDailyTimer)this.Timer.Clone();
-        this._minutes = this._clone.GetDisplayMinute();
-        this._hours = this._clone.GetDisplayHour();
-        _show = true;
-        InvokeAsync(StateHasChanged);
+
+        base.Show();
     }
 
-    public void Close()
+    public async Task<DialogResult> ShowDialog(IDailyTimer timer)
     {
-        _show = false;
-        InvokeAsync(StateHasChanged);
+        this.Show(timer);
+
+        return await base.ShowDialog();
     }
 
     private void ChannelUpdated(MouseEventArgs e)
     {
-        this.Close();
-
         this._clone.CopyTo(this.Timer);
         this.Timer.SwitchTime = $"{this._hours}:{ this._minutes}";
 
         OnTimerUpdated?.Invoke(e, this.Timer);
+
+        base.Close(DialogResult.OK);
     }
 
     private void CloseClicked(MouseEventArgs e)
     {
-        this.Close();
+        this.Close(DialogResult.None);
     }
 }
