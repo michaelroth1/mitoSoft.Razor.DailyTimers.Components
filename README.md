@@ -8,7 +8,7 @@ This library provides a bunch of rozor controsl to handle the daily-timers of **
  - mitoSoft.DailyTimers.Core (1.1.1)
  - mitoSoft.Razor.Components (1.1.0)
 
-## DailyTimeView.razor 
+## DailyTimeView 
 This control provides short overview to depict teh information of a **IDailyTimer** interface in a quick and easy manner. 
 Furthermore it comes with a remove, a update and a select event to handel the timer appropriately in the calling component
 It could be embedded as follows:
