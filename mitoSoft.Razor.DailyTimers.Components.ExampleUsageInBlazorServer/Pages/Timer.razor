@@ -17,7 +17,7 @@
 @foreach (var timer in this.Timers.SortByName())
 {
     <p>
-        <DailyTimerView OnTimerRemoved="@OnTimerRemoved" OnTimerUpdated="@OnTimerUpdated" Timer="@timer"></DailyTimerView>
+        <DailyTimerView ShowEditor="true" OnTimerRemoved="@OnTimerRemoved" OnTimerUpdated="@OnTimerUpdated" Timer="@timer"></DailyTimerView>
     </p>
 }
 

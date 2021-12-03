@@ -2,7 +2,7 @@
 
 <div class="input-group mb-3">
     <button class="btn btn-primary btn-block" @onclick="@(e => SelectClicked(e))">
-        @($"{this.Timer.Name} ({this.Timer.Active.ToText()})") 
+        @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
         <br />
         @GetChannelText()
     </button>
@@ -27,9 +27,16 @@
     [Parameter]
     public IDailyTimer Timer { get; set; }
 
+    [Parameter]
+    public bool ShowEditor { get; set; }
+
     public void SelectClicked(MouseEventArgs e)
     {
-        _editTimer.Show(this.Timer);
+        if (this.ShowEditor)
+        {
+            _editTimer.Show(this.Timer);
+        }
+
         OnTimerSelected?.Invoke(e, this.Timer);
     }
 
