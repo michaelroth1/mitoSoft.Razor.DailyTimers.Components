@@ -122,5 +122,14 @@ namespace mitoSoft.Razor.DailyTimers.Components.Properties {
                 return ResourceManager.GetString("NoHolidays", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Triggertime.
+        /// </summary>
+        internal static string TriggerTime {
+            get {
+                return ResourceManager.GetString("TriggerTime", resourceCulture);
+            }
+        }
     }
 }

@@ -7,10 +7,10 @@
 
 @inject IJSRuntime JsRuntime
 
-<h1>TimeSwitches</h1>
+<h1>Timers</h1>
 
 <p>
-    <button class="btn btn-primary" @onclick="@ShowInputBox">Add</button>
+    <button class="btn btn-primary" @onclick="@OnTimerAdded">Add</button>
 </p>
 
 
@@ -21,10 +21,12 @@
     </p>
 }
 
-<InputBox @ref="_input" OnOkClicked="@OnTimerAdded"></InputBox>
+<InputBox @ref="_inputBox"></InputBox>
+<MessageBox @ref="_messageBox"></MessageBox>
 
 @code {
-    private InputBox _input;
+    private InputBox _inputBox;
+    private MessageBox _messageBox;
 
     private IList<IDailyTimer> Timers { get; set; }
 
@@ -41,11 +43,6 @@
         }
     }
 
-    private void ShowInputBox()
-    {
-        _input.Show("Add DailyTimer", "");
-    }
-
     private void OnTimerUpdated(MouseEventArgs e, IDailyTimer timer)
     {
         //do something when a timer gets updated
@@ -58,21 +55,27 @@
         InvokeAsync(StateHasChanged);
     }
 
-    private async void OnTimerAdded(MouseEventArgs e, string name)
+    private async void OnTimerAdded(MouseEventArgs e)
     {
-        if (string.IsNullOrEmpty(name))
+        var result = await _inputBox.ShowDialog("Timers", "Add DailyTimer", "");
+
+        if (result != Razor.Components.Enums.DialogResult.OK)
         {
-            await JsRuntime.InvokeVoidAsync("alert", $"Choose a name.");
+            return;
         }
-        else if (this.Timers.Any(c => c.Name == name))
+        else if (string.IsNullOrEmpty(_inputBox.Result))
         {
-            await JsRuntime.InvokeVoidAsync("alert", $"The name '{name}' is already choosen.");
+            await _messageBox.ShowDialog("Timers", $"Choose a name.", Razor.Components.Enums.DialogButtons.OK);
+        }
+        else if (this.Timers.Any(c => c.Name == _inputBox.Result))
+        {
+            await _messageBox.ShowDialog("Timers", $"The name '{_inputBox.Result}' is already choosen.", Razor.Components.Enums.DialogButtons.OK);
         }
         else
         {
             var timer = new DailyTimer();
             timer.Initialize();
-            timer.Name = name;
+            timer.Name = _inputBox.Result;
             Timers.Add(timer);
             await InvokeAsync(StateHasChanged);
         }

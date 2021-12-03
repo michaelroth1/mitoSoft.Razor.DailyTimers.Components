@@ -132,6 +132,9 @@
   <data name="NoHolidays" xml:space="preserve">
     <value>Feiertage auslassen</value>
   </data>
+  <data name="TriggerTime" xml:space="preserve">
+    <value>Zeit</value>
+  </data>
   <data name="_active" xml:space="preserve">
     <value>aktiv</value>
   </data>

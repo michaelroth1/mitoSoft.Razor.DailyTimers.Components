@@ -2,7 +2,13 @@
 
 This library provides a bunch of rozor controsl to handle the daily-timers of **mitoSoft.DailyTimers.Core**.
 
-## DailyTimeView.razor 
+## Dependencies
+
+ - Microsoft.AspNetCore.Components.Web
+ - mitoSoft.DailyTimers.Core
+ - mitoSoft.Razor.Components
+
+## DailyTimeView 
 This control provides short overview to depict teh information of a **IDailyTimer** interface in a quick and easy manner. 
 Furthermore it comes with a remove, a update and a select event to handel the timer appropriately in the calling component
 It could be embedded as follows:
@@ -23,7 +29,8 @@ It looks like follows:
 ![Screenshot](ViewExample.png)
 
 ## EditDailyTimerModal
-This control is also build as modal control  and provides all necessarily user controls elements to edit a IDailyTimer interface.
+This control is also build as modal control and provides all necessarily user controls elements to edit a IDailyTimer interface.
+It is callable synchronously via **ShowDialog()** and asynchronously via **Show()**.
 
 It looks like follows:
 
