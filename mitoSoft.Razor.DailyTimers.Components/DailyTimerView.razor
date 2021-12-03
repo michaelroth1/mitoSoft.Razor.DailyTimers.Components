@@ -2,7 +2,7 @@
 
 <div class="input-group mb-3">
     <button class="btn btn-primary btn-block" @onclick="@(e => SelectClicked(e))">
-        @($"{this.Timer.Name} ({this.Timer.Active.ToText()})") 
+        @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
         <br />
         @GetChannelText()
     </button>
@@ -27,16 +27,22 @@
     [Parameter]
     public IDailyTimer Timer { get; set; }
 
+    [Parameter]
+    public bool ShowEditor { get; set; }
+
     public async void SelectClicked(MouseEventArgs e)
     {
         OnTimerSelected?.Invoke(e, this.Timer);
 
-        var result = await _editTimer.ShowDialog(this.Timer);
-
-        if (result == Razor.Components.Enums.DialogResult.OK)
+        if (this.ShowEditor)
         {
-            OnTimerUpdated?.Invoke(e, _editTimer.Timer);
-            await InvokeAsync(StateHasChanged);
+            var result = await _editTimer.ShowDialog(this.Timer);
+
+            if (result == Razor.Components.Enums.DialogResult.OK)
+            {
+                OnTimerUpdated?.Invoke(e, _editTimer.Timer);
+                await InvokeAsync(StateHasChanged);
+            }
         }
     }
 
