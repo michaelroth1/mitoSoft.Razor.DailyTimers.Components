@@ -6,7 +6,10 @@
         <br />
         @GetChannelText()
     </button>
-    <button class="btn btn-secondary overlay" type="button" @onclick="@(e => RemoveClicked(e))">&times;</button>
+    @if (this.ShowRemoveButton)
+    {
+        <button class="btn btn-secondary overlay" type="button" @onclick="@(e => RemoveClicked(e))">&times;</button>
+    }
 </div>
 
 <EditDailyTimerModal @ref="_editTimer"></EditDailyTimerModal>
@@ -28,13 +31,16 @@
     public IDailyTimer Timer { get; set; }
 
     [Parameter]
-    public bool ShowEditor { get; set; }
+    public bool ShowEditorOnClick { get; set; }
+
+    [Parameter]
+    public bool ShowRemoveButton { get; set; } = true;
 
     public async void SelectClicked(MouseEventArgs e)
     {
         OnTimerSelected?.Invoke(e, this.Timer);
 
-        if (this.ShowEditor)
+        if (this.ShowEditorOnClick)
         {
             var result = await _editTimer.ShowDialog(this.Timer);
 
