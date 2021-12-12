@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <Authors>mitoSoft</Authors>
     <Description>A frontend library for handling (setting, edit,..) the daily timers of 'mitoSoft.DailyTimers.Core'</Description>
     <Copyright>(c)mitoSoft 2021</Copyright>
@@ -10,7 +10,7 @@
     <PackageIcon>mitoSoft.png</PackageIcon>
     <PackageTags>timeswitch time trigger timer daily-timer weekly-timer</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageReleaseNotes>[Feature] Add ShowRemoveButton property to DailyTimerView [Change] rename ShowEditor to ShowEditonOnClick</PackageReleaseNotes>
+    <PackageReleaseNotes>[Feature] Repositioning of the close button to the right upper corner. This fits the mitoSoft frontent pattern for close buttons.</PackageReleaseNotes>
   </PropertyGroup>
 
   
