@@ -1,6 +1,6 @@
 ﻿using mitoSoft.DailyTimers.Core.Contracts;
 
-namespace mitoSoft.Razor.DailyTimers.Components.Examples.DotNet5.Models
+namespace mitoSoft.Razor.DailyTimers.Components.Examples.DotNet6.Models
 {
     public class DailyTimer : IDailyTimer
     {

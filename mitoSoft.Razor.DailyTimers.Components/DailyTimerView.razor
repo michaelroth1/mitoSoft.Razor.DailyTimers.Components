@@ -1,15 +1,25 @@
 ﻿@using mitoSoft.Razor.DailyTimers.Components.Converters
 
-<div class="input-group mb-3">
-    <button class="btn btn-primary btn-block" @onclick="@(e => SelectClicked(e))">
-        @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
-        <br />
-        @GetChannelText()
-    </button>
-    @if (this.ShowRemoveButton)
-    {
-        <button class="btn btn-secondary overlay" type="button" @onclick="@(e => RemoveClicked(e))">&times;</button>
-    }
+<div class="alert alert-primary">
+    <div class="row">
+
+        <div class="col">
+            @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
+            <br />
+            @GetChannelText()
+        </div>
+
+        <div class="col-auto">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" @onclick="@(e => SelectClicked(e))">
+                    <span class="oi oi-pencil" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-secondary" @onclick="@(e => RemoveClicked(e))">
+                    <span class="oi oi-x" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <EditDailyTimerModal @ref="_editTimer"></EditDailyTimerModal>
