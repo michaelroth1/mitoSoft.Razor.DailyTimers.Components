@@ -19,9 +19,12 @@
                         <button type="button" class="btn btn-primary mitosoft-btn mitosoft-btn-primary" @onclick="@(e => SelectClicked(e))">
                             <span class="oi oi-pencil mitosoft-text" aria-hidden="true"></span>
                         </button>
-                        <button type="button" class="btn btn-secondary mitosoft-btn mitosoft-btn-secondary" @onclick="@(e => RemoveClicked(e))">
-                            <span class="oi oi-x mitosoft-text" aria-hidden="true"></span>
-                        </button>
+                        @if (ShowRemoveButton)
+                        {
+                            <button type="button" class="btn btn-secondary mitosoft-btn mitosoft-btn-secondary" @onclick="@(e => RemoveClicked(e))">
+                                <span class="oi oi-x mitosoft-text" aria-hidden="true"></span>
+                            </button>
+                        }
                     </div>
                 </div>
             </div>
