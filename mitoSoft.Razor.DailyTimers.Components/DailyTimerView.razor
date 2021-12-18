@@ -1,20 +1,23 @@
 ﻿@using mitoSoft.Razor.DailyTimers.Components.Converters
 
-<div class="alert alert-primary">
+<div class="mitosoft-timer-view rounded">
     <div class="row">
-
         <div class="col">
-            @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
-            <br />
-            @GetChannelText()
+            <div class="container mt-2 mb-2">
+                <lable class="mitosoft-text">
+                    @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
+                    <br />
+                    @($"{this.GetChannelText()}")
+                </lable>
+            </div>
         </div>
 
         <div class="col-auto">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary" @onclick="@(e => SelectClicked(e))">
+                <button type="button" class="btn btn-primary mitosoft-btn mitosoft-btn-primary" @onclick="@(e => SelectClicked(e))">
                     <span class="oi oi-pencil" aria-hidden="true"></span>
                 </button>
-                <button type="button" class="btn btn-secondary" @onclick="@(e => RemoveClicked(e))">
+                <button type="button" class="btn btn-secondary mitosoft-btn mitosoft-btn-secondary" @onclick="@(e => RemoveClicked(e))">
                     <span class="oi oi-x" aria-hidden="true"></span>
                 </button>
             </div>
