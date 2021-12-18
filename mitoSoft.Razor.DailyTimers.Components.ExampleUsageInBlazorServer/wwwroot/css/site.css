@@ -5,11 +5,7 @@
 }
 
 .mitosoft-text {
-    color: dimgrey;
-}
-
-.mitosoft-btn-text { /*important to write this below 'mitosoft-text' -> higher prio */
-    color: white;
+    color: black;
 }
 
 .mitosoft-component-timer-view {
@@ -21,6 +17,10 @@
     margin-right: 2px;
     border-color: black;
 }
+
+    .mitosoft-btn .mitosoft-text {
+        color: white;
+    }
 
 .mitosoft-btn-primary {
     background-color: dimgrey;
