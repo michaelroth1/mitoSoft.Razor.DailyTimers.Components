@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>6.0.2</Version>
+    <Version>6.0.3</Version>
     <Authors>mitoSoft</Authors>
     <Description>A frontend library for handling (setting, edit,..) the daily timers of 'mitoSoft.DailyTimers.Core'</Description>
     <Copyright>(c)mitoSoft 2021</Copyright>
