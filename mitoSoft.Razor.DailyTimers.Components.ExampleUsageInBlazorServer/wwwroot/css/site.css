@@ -1,5 +1,6 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+
 .mitosoft-title {
     color: brown;
 }
@@ -25,6 +26,7 @@
 .mitosoft-btn-primary {
     background-color: dimgrey;
 }
+
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
