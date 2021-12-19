@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>6.0.6</Version>
+    <Version>6.0.8</Version>
     <Authors>mitoSoft</Authors>
     <Description>A frontend library for handling (setting, edit,..) the daily timers of 'mitoSoft.DailyTimers.Core'</Description>
     <Copyright>(c)mitoSoft 2021</Copyright>
@@ -10,7 +10,7 @@
     <PackageIcon>mitoSoft.png</PackageIcon>
     <PackageTags>timeswitch time trigger timer daily-timer weekly-timer</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageReleaseNotes>[Feature] added ComponentView Component</PackageReleaseNotes>
+    <PackageReleaseNotes>[Feature] added 'mitosoft' style classes to allow custom stylings</PackageReleaseNotes>
   </PropertyGroup>
 
   
