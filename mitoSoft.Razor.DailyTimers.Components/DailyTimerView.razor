@@ -1,32 +1,25 @@
 ﻿@using mitoSoft.Razor.DailyTimers.Components.Converters
 
-<div class="mitosoft-component">
-    <div class="mitosoft-component-timer">
-        <div class="mitosoft-component-timer-view rounded">
-            <div class="row">
-                <div class="col">
-                    <div class="container mt-2 mb-2">
-                        <lable class="mitosoft-text">
-                            @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
-                            <br />
-                            @($"{this.GetChannelText()}")
-                        </lable>
-                    </div>
-                </div>
-
-                <div class="col-auto">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary mitosoft-btn mitosoft-btn-primary" @onclick="@(e => SelectClicked(e))">
-                            <span class="oi oi-pencil mitosoft-text" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-secondary mitosoft-btn mitosoft-btn-secondary" @onclick="@(e => RemoveClicked(e))">
-                            <span class="oi oi-x mitosoft-text" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </div>
+<div class="mitosoft-component mitosoft-component-timer">
+    <ComponentView>
+        <TextContent>
+            <lable class="mitosoft-text">
+                @($"{this.Timer.Name} ({this.Timer.Active.ToText()})")
+                <br />
+                @($"{this.GetChannelText()}")
+            </lable>
+        </TextContent>
+        <Buttons>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary mitosoft-btn mitosoft-btn-primary" @onclick="@(e => SelectClicked(e))">
+                    <span class="oi oi-pencil mitosoft-text" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-secondary mitosoft-btn mitosoft-btn-secondary" @onclick="@(e => RemoveClicked(e))">
+                    <span class="oi oi-x mitosoft-text" aria-hidden="true"></span>
+                </button>
             </div>
-        </div>
-    </div>
+        </Buttons>
+    </ComponentView>
 </div>
 
 <EditDailyTimerModal @ref="_editTimer"></EditDailyTimerModal>

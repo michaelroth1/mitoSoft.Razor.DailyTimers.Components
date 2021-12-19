@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mitoSoft.Razor.DailyTimers.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mitoSoft.Razor.DailyTimers.Components.Examples.DotNet5", "mitoSoft.Razor.DailyTimers.Components.ExampleUsageInBlazorServer\mitoSoft.Razor.DailyTimers.Components.Examples.DotNet5.csproj", "{435DA865-6D96-4B79-8B6C-277993836503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mitoSoft.Razor.DailyTimers.Components.Examples.DotNet6", "mitoSoft.Razor.DailyTimers.Components.ExampleUsageDotNet6\mitoSoft.Razor.DailyTimers.Components.Examples.DotNet6.csproj", "{B84BEFA2-7AEB-4694-A5C5-144731BFB7A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mitoSoft.Razor.DailyTimers.Components.Examples.DotNet6", "mitoSoft.Razor.DailyTimers.Components.ExampleUsageDotNet6\mitoSoft.Razor.DailyTimers.Components.Examples.DotNet6.csproj", "{B84BEFA2-7AEB-4694-A5C5-144731BFB7A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8230A59F-7DA3-4785-9A99-DCD1A1A6A823}"
 	ProjectSection(SolutionItems) = preProject
