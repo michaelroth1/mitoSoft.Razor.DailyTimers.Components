@@ -1,4 +1,5 @@
-﻿@using mitoSoft.Razor.DailyTimers.Components.Converters
+﻿@using mitoSoft.Razor.Components.Enums
+@using mitoSoft.Razor.DailyTimers.Components.Converters
 
 <div class="mitosoft-component mitosoft-component-timer">
     <ComponentView>
@@ -49,23 +50,22 @@
     [Parameter]
     public bool ShowRemoveButton { get; set; } = true;
 
-    public async void SelectClicked(MouseEventArgs e)
+    public async Task<DialogResult> ShowEditor()
+    {
+        return await this.ShowEditor(null);
+    }
+
+    protected virtual async void SelectClicked(MouseEventArgs e)
     {
         OnTimerSelected?.Invoke(e, this.Timer);
 
         if (this.ShowEditorOnClick)
         {
-            var result = await _editTimer.ShowDialog(this.Timer);
-
-            if (result == Razor.Components.Enums.DialogResult.OK)
-            {
-                OnTimerUpdated?.Invoke(e, _editTimer.Timer);
-                await InvokeAsync(StateHasChanged);
-            }
+            await this.ShowEditor(e);
         }
     }
 
-    public void RemoveClicked(MouseEventArgs e)
+    protected virtual void RemoveClicked(MouseEventArgs e)
     {
         OnTimerRemoved?.Invoke(e, this.Timer);
     }
@@ -78,5 +78,18 @@
             desc = this.Timer.Description + ": ";
         }
         return desc + this.Timer.GetAbbreviationText() + " - " + this.Timer.SwitchTime;
+    }
+
+    private async Task<DialogResult> ShowEditor(MouseEventArgs e)
+    {
+        var result = await _editTimer.ShowDialog(this.Timer);
+
+        if (result == DialogResult.OK)
+        {
+            OnTimerUpdated?.Invoke(e, _editTimer.Timer);
+            await InvokeAsync(StateHasChanged);
+        }
+
+        return result;
     }
 }

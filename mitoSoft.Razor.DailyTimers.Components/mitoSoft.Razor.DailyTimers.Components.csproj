@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>6.1.1</Version>
+    <Version>6.1.2</Version>
     <Authors>mitoSoft</Authors>
     <Description>A frontend library for handling (setting, edit,..) the daily timers of 'mitoSoft.DailyTimers.Core'</Description>
     <Copyright>(c)mitoSoft 2021</Copyright>
@@ -10,7 +10,7 @@
     <PackageIcon>mitoSoft.png</PackageIcon>
     <PackageTags>timeswitch time trigger timer daily-timer weekly-timer</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageReleaseNotes>[Feature] change button image</PackageReleaseNotes>
+    <PackageReleaseNotes>[Feature] added 'ShowDialog' function in 'DailyTimerView' </PackageReleaseNotes>
   </PropertyGroup>
 
   

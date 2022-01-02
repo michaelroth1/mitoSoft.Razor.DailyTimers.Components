@@ -21,7 +21,14 @@
 @foreach (var timer in this.Timers.SortByName())
 {
     <p>
-        <DailyTimerView ShowEditorOnClick="true" OnTimerRemoved="@OnTimerRemoved" OnTimerUpdated="@OnTimerUpdated" Timer="@timer"></DailyTimerView>
+        @if (this._selectedTimer == timer)
+        {
+            <DailyTimerView @ref="_view" ShowEditorOnClick="true" OnTimerRemoved="@OnTimerRemoved" OnTimerUpdated="@OnTimerUpdated" Timer="@timer"></DailyTimerView>
+        }
+        else
+        {
+            <DailyTimerView ShowEditorOnClick="true" OnTimerRemoved="@OnTimerRemoved" OnTimerUpdated="@OnTimerUpdated" Timer="@timer"></DailyTimerView>
+        }
     </p>
 }
 
@@ -31,6 +38,8 @@
 @code {
     private InputBox _inputBox;
     private MessageBox _messageBox;
+    private IDailyTimer? _selectedTimer;
+    private DailyTimerView _view;
 
     private IList<IDailyTimer> Timers { get; set; }
 
@@ -81,7 +90,13 @@
             timer.Initialize();
             timer.Name = _inputBox.Result;
             Timers.Add(timer);
+            this._selectedTimer = timer;
             await InvokeAsync(StateHasChanged);
+            if (this._view != null)
+            {
+                await this._view.ShowEditor();
+            }
+            this._selectedTimer = null;
         }
     }
 }
