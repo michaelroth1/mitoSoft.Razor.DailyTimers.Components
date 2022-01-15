@@ -11,96 +11,69 @@
     <ModalTemplate Visibility="@base.Visibility" Title="@_clone?.Name" ShowCloseButton="true" OnCloseClicked="@CloseClicked">
         <Content>
 
-            <div class="container">
+            <input class="form-control mitosoft-text mb-2" placeholder="@Properties.Resources.Description" type="text" @bind="@_clone.Description" />
 
-                <div class="row mb-3 mt-2">
-                    <input class="form-control mitosoft-text" placeholder="@Properties.Resources.Description" type="text" @bind="@_clone.Description" />
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckActive" @bind="@_clone.Active">
+                <label class="form-label mitosoft-text" for="customCheckActive">@Properties.Resources.Active</label>
+            </div>
 
-                <div class="row mb-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckActive" @bind="@_clone.Active">
-                        <label class="form-check-label mitosoft-text" for="customCheckActive">@Properties.Resources.Active</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckMo" @bind="@_clone.Monday">
+                <label class="form-label mitosoft-text" for="customCheckMo">@(DayNameHelper.ToDayName(1))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckMo" @bind="@_clone.Monday">
-                        <label class="form-check-label mitosoft-text" for="customCheckMo">@(DayNameHelper.ToDayName(1))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckDi" @bind="@_clone.Tuesday">
+                <label class="form-label mitosoft-text" for="customCheckDi">@(DayNameHelper.ToDayName(2))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckDi" @bind="@_clone.Tuesday">
-                        <label class="form-check-label mitosoft-text" for="customCheckDi">@(DayNameHelper.ToDayName(2))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckMi" @bind="@_clone.Wednesday">
+                <label class="form-label mitosoft-text" for="customCheckMi">@(DayNameHelper.ToDayName(3))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckMi" @bind="@_clone.Wednesday">
-                        <label class="form-check-label mitosoft-text" for="customCheckMi">@(DayNameHelper.ToDayName(3))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckDo" @bind="@_clone.Thursday">
+                <label class="form-label mitosoft-text" for="customCheckDo">@(DayNameHelper.ToDayName(4))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckDo" @bind="@_clone.Thursday">
-                        <label class="form-check-label mitosoft-text" for="customCheckDo">@(DayNameHelper.ToDayName(4))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckFr" @bind="@_clone.Friday">
+                <label class="form-label mitosoft-text" for="customCheckFr">@(DayNameHelper.ToDayName(5))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckFr" @bind="@_clone.Friday">
-                        <label class="form-check-label mitosoft-text" for="customCheckFr">@(DayNameHelper.ToDayName(5))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckSa" @bind="@_clone.Saturday">
+                <label class="form-label mitosoft-text" for="customCheckSa">@(DayNameHelper.ToDayName(6))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckSa" @bind="@_clone.Saturday">
-                        <label class="form-check-label mitosoft-text" for="customCheckSa">@(DayNameHelper.ToDayName(6))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckSo" @bind="@_clone.Sunday">
+                <label class="form-label mitosoft-text" for="customCheckSo">@(DayNameHelper.ToDayName(0))</label>
+            </div>
 
-                <div class="row mb-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckSo" @bind="@_clone.Sunday">
-                        <label class="form-check-label mitosoft-text" for="customCheckSo">@(DayNameHelper.ToDayName(0))</label>
-                    </div>
-                </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheckHolidays" @bind="@_clone.IgnoreOnHolidays">
+                <label class="form-label mitosoft-text" for="customCheckHolidays">@Properties.Resources.NoHolidays</label>
+            </div>
 
-                <div class="row mb-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input mitosoft-control-check" id="customCheckHolidays" @bind="@_clone.IgnoreOnHolidays">
-                        <label class="form-check-label mitosoft-text" for="customCheckHolidays">@Properties.Resources.NoHolidays</label>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label class="form-label mitosoft-text">@($"{Properties.Resources.TriggerTime}:")</label>
 
-                <div class="row mb-1">
-                    <label class="mitosoft-text">@($"{Properties.Resources.TriggerTime}:")</label>
-                </div>
+                <select class="form-select mitosoft-text w-100" @bind="@_hours">
+                    @for (int i = 0; i < 24; i++)
+                    {
+                        <option>@i.ToString().PadLeft(2, '0')</option>
+                    }
+                </select>
 
-                <div class="row mb-1">
-                    <select class="form-select mitosoft-control-select mitosoft-text w-100" @bind="@_hours">
-                        @for (int i = 0; i < 24; i++)
-                        {
-                            <option>@i.ToString().PadLeft(2, '0')</option>
-                        }
-                    </select>
-                </div>
-
-                <div class="row mb-1">
-                    <select class="form-select mitosoft-control-select mitosoft-text w-100" @bind="@_minutes">
-                        @for (int i = 0; i < 60; i = i + 5)
-                        {
-                            <option>@i.ToString().PadLeft(2, '0')</option>
-                        }
-                    </select>
-                </div>
+                <select class="form-select mitosoft-text w-100" @bind="@_minutes">
+                    @for (int i = 0; i < 60; i = i + 5)
+                    {
+                        <option>@i.ToString().PadLeft(2, '0')</option>
+                    }
+                </select>
             </div>
         </Content>
         <Footer>
